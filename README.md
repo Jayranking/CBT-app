@@ -1,4 +1,4 @@
-**CBT App (Computer-Based Testing System)**
+# **CBT App (Computer-Based Testing System)**
 
 *Project Description*
 
@@ -35,12 +35,15 @@ Navigate to the project directory: *cd CBT-app*
 Start the development server: *npm install*
 
 Set up environment variables in a .env file: 
+
 APP_PORT = 8000
 
 DB_URL= mongodb://127.0.0.1:27017/cbt_app
 
 SECRET = ""
 
-# ==============Email config======================
+**Email config**
+
 EMAILFROM = ''
+
 EMAIL_KEY = ''

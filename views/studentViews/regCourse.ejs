@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Course Registration</title>
+    <%- include('../snippets/headers.ejs') %>
+
+</head>
+<body>
+    <!-- <div class="container-fluid position-relative bg-white d-flex p-0"> -->
+        <% var context %>
+
+        <!-- Sidebar Start -->
+        <!-- Sidebar End -->
+
+        <!-- Content Start -->
+        <!-- <div class="content"> -->
+            <!-- Navbar Start -->
+            <!-- Navbar End -->
+
+
+            <!-- Content Start -->
+            <div class="container">
+                <div class="table-responsive mt-4">
+                    <div class="card shadow">
+                        <h5 class="text-center text-primary mb-4 mt-4 fw-bold">Select course</h5>
+
+                        <div class="card-body">
+                            <form action="" id="courseForm">
+                                <table id="example" class="table table-striped" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>S/N</th>
+                                            <th>Course Code</th>
+                                            <th>Course Title</th>
+                                            <th>Course Unit</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% var context %>
+                                        <% if (context.courses) { %>
+                                        <% context.courses.forEach(course => { %>
+                                            <tr>
+                                                <td><input class="form-check-input" type="checkbox" name="title" value="<%= course._id %>"></td>
+                                                <td> <%= course.code %></td>
+                                                <td><%= course.title %></td>
+                                                <td><%= course.unit %></td>
+                                            </tr>
+                                        <% }) %>
+                                        <% } %>
+                                    </tbody> 
+                                </table>
+                                <div class="titleErr text-danger"></div>
+        
+                                <div class="text-center mt-3 mb-2">
+                                    <button type="submit" class="btn btn-primary btn-sm w-25 fw-bold">Start exam</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- Content End -->
+        <!-- </div> -->
+    <!-- </div> -->
+
+        <!-- Footer Start -->
+        <!-- Footer End -->
+        <script src="/js/studentCourse.js"></script>
+        <!-- JavaScript -->
+        <%- include('../snippets/scripts.ejs') %>
+        <script>
+            new DataTable('#example');
+        </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>View students</title>
+    <%- include('../snippets/headers.ejs') %>
+
+</head>
+<body>
+    <div class="container-fluid position-relative bg-white d-flex p-0">
+        <!-- Sidebar Start -->
+        <%- include('../snippets/adminSidebar.ejs') %> 
+        <!-- Sidebar End -->
+
+
+        <!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
+            <%- include('../snippets/adminNav.ejs') %>
+            <!-- Navbar End -->
+
+
+            <!-- Content Start -->
+            <div class="container-fluid">
+                <div class="table-responsive mt-5">
+                    <h5 class="text-primary text-center mb-4">Registered Student </h5>
+                        <table id="example" class="table table-striped" style="width:100%;">
+                             <thead>
+                                <tr>
+                                    <th>Full Name</th>
+                                    <th>Gender</th>
+                                    <th>Email</th>
+                                    <th>Matric No</th>
+                                    <th>Level</th>
+                                    <th>Faculty</th>
+                                    <th>Department</th>
+                                    <th>Actions</th>
+                                </tr>
+                             </thead>
+                             <tbody>
+                                 
+                                <% var context %>
+                                <% if (context.students) { %>
+                                 <% context.students.forEach(student => { %>
+                                    <tr>
+                                        <td><%= student.fullname %></td>
+                                        <td><%= student.gender %></td>
+                                        <td><%= student.email %></td>
+                                        <td><%= student.reg_no %></td>
+                                        <td><%= student.level %></td>
+                                        <td><%= student.faculty %></td>
+                                        <td><%= student.dept %></td>
+                                        <td class="d-flex">
+                                            <a href="/admin/view-student/?studentId=<%= student._id %>"><button class=" btn btn-sm btn-outline-primary me-2" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button></a>
+                                            <a href=""><button class=" btn btn-sm btn-outline-danger" data-toggle="tooltip" data-placement="top" title="Deactivate"><i class="fa fa-ban"></i></button></a>
+                                        </td>
+                                                 
+                                    </tr>
+                                 <% }) %>
+                                <% } %>
+ 
+                             </tbody>
+                         </table>
+                </div>
+            </div>
+        <!-- Content End -->
+        </div>
+    </div>
+
+    <!-- Footer Start -->
+    <%- include('../snippets/footer.ejs') %>
+    <!-- Footer End -->
+
+    <!-- JavaScript -->
+    <%- include('../snippets/scripts.ejs') %>
+     
+</body>
+</html>

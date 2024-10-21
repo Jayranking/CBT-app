@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Exam</title>
+    <%- include('../snippets/headers.ejs') %>
+
+</head>
+<body>
+    <div class="container-fluid position-relative bg-white d-flex p-0">
+        <!-- Sidebar Start -->
+        <%- include('../snippets/sidebar.ejs') %>
+        <!-- Sidebar End -->
+
+        <!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
+            <%- include('../snippets/navbar.ejs') %>
+            <!-- Navbar End -->
+
+            <div class="container-fluid">
+                <div class="examDuration d-flex justify-content-end">
+                    <span><i class="uil uil-stopwatch"></i></span>
+                    <h3>Time Left: <span id="countdown" class="text-danger"><%= time.hours %>:<%= time.minutes %>:<%= time.seconds %></span> </h3>
+                </div>
+
+                <div class="container">
+                    <div class="questionSection">
+                        <form id="examForm">
+                            <div class="studentQuestion">
+                                <% if (context.courseQuestions) { %>
+                                    <% context.courseQuestions.forEach((courseQuestions, questionIndex) => { %>
+                                        <div class="questionnaire-page" id="question<%= questionIndex + 1 %>">
+                                            <div class="question text-success mb-5">
+                                                <h5>Question <%= questionIndex + 1 %>: <br> <br> <%= courseQuestions.question %></h5>
+                                            </div>
+                                            <div class="options">
+                                                <% courseQuestions.options.forEach((option, optionIndex) => { %>
+                                                    <h6><span><%= String.fromCharCode(65 + optionIndex) + '. ' + option %> </span></h6>
+                                                <% }) %>                                            
+                                                <div class="tickAnswer">
+                                                    <% for (var i = 0; i < courseQuestions.options.length; i++) { %>
+                                                        <p><%= String.fromCharCode(65 + i) %> <span><input class="form-check-input me-5" type="radio" name="question<%= questionIndex + 1 %>" id="radio<%= questionIndex + 1 %><%= i + 1 %>" value="<%= courseQuestions.options[i] %>" onchange="updateAnsweredQuestions(<%= questionIndex + 1 %>)"></span></p>
+                                                    <% } %>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <% }) %>
+                                <% } %>
+                            </div>
+
+                            <div class="buttonSection">
+                                <div class="buttonArea">
+                                    <% if (context.courseQuestions) { %>
+                                        <% context.courseQuestions.forEach((courseQuestions, questionIndex) => { %>
+                                            <button onclick="showQuestion(<%= questionIndex + 1 %>)" type="button" class="btn btn-question" id="button<%= questionIndex + 1 %>"><%= questionIndex + 1 %></button>
+                                        <% }) %>
+                                    <% } %>
+                                </div>
+                                <input type="hidden" name="courseId"  value="<%= context.studentCourse.course[0]._id %>">
+                                <input type="hidden" name="studentId" value="<%= student._id %>">
+                                <div class="submitbtn">
+                                    <!-- <button type="button" onclick="submitForm()" class="btn btn-primary">Submit</button> -->
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <!-- Content End -->
+    </div>
+
+    <!-- Footer Start -->
+    <%- include('../snippets/footer.ejs') %>
+    <!-- Footer End -->
+
+    <!-- JavaScript -->
+    <%- include('../snippets/scripts.ejs') %>
+    <!-- <script src="/js/exam.js"></script> -->
+
+    <!-- question buttons  -->
+    <script>
+        let currentQuestion = 1;
+        let answeredQuestions = new Set();
+    
+        function showQuestion(questionNumber) {
+            document.getElementById(`question${currentQuestion}`).style.display = 'none';
+            currentQuestion = questionNumber;
+            document.getElementById(`question${currentQuestion}`).style.display = 'block';
+            updateButtonStyles();
+        }
+
+        // Show the first question when the page loads
+        window.addEventListener('load', function() {
+            showQuestion(1);
+        });
+    
+        function updateButtonStyles() {
+            for (let i = 1; i <= <%= context.courseQuestions.length %>; i++) {
+                const button = document.getElementById(`button${i}`);
+                if (answeredQuestions.has(i)) {
+                    button.classList.add('answered');
+                    button.classList.remove('unanswered');
+                } else {
+                    button.classList.add('unanswered');
+                    button.classList.remove('answered');
+                }
+            }
+        }
+    
+        function updateAnsweredQuestions(questionNumber) {
+            answeredQuestions.add(questionNumber);
+            updateButtonStyles();
+        }
+    
+    
+        // Initialize button styles
+        updateButtonStyles();
+    </script>
+    <script>
+        const context = <%- JSON.stringify(context) %>;
+    </script>
+    <script>
+        // Start countdown timer when the page loads
+        window.onload = function() {
+            const time = {
+                hours: <%= time.hours %>,
+                minutes: <%= time.minutes %>,
+                seconds: <%= time.seconds %>
+            };
+            startCountdown(time);
+        };
+    </script>
+  
+    <script src="/js/exam.js"></script>
+</body>
+</html>

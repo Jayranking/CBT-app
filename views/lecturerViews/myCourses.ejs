@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>My course</title>
+    <%- include('../snippets/headers.ejs') %>
+
+</head>
+<body>
+    <div class="container-fluid position-relative bg-white d-flex p-0">
+        <!-- Sidebar Start -->
+        <%- include('../snippets/sidebar.ejs') %>
+        <!-- Sidebar End -->
+
+
+        <!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
+            <%- include('../snippets/navbar.ejs') %>
+            <!-- Navbar End -->
+
+            <div class="container-fluid">
+                <div class="table-responsive mt-5">
+                    <h6 class="text-primary text-center mb-4">My Course</h6>
+                    <table id="example" class="table table-striped" style="width:100%;">
+                         <thead>
+                             <tr>
+                                 <th>Course title</th>
+                                 <th>code</th>
+                                 <th>Unit</th>
+                                 <th>Level</th>
+                                 <th class="text-justify-center"></th>
+                             </tr>
+                         </thead>
+                            <tbody>
+                                <% if (context.assignedCourses) { %>
+                                    <% context.assignedCourses.forEach(courseAssignment => { %>
+                                        <% courseAssignment.course.forEach(course => { %>
+                                            <tr>
+                                                <td><%= course.title %></td>
+                                                <td><%= course.code %></td>
+                                                <td><%= course.unit %></td>
+                                                <td><%= course.level %></td>
+                                                <td class="d-flex">
+                                                    <a href="/tutor/upload-exam/?assignedCourseId=<%=course._id  %>"><button class="btn btn-sm btn-outline-primary me-2">Set Exam</button></a>
+                                                    <a href="/tutor/duration/?assignedCourseId=<%=course._id  %>"><button class="btn btn-sm btn-outline-primary me-2">Set Duration</button></a>
+                                                    <a href="/tutor/questions/?assignedCourseId=<%=course._id  %>"><button class="btn btn-sm btn-outline-primary me-2">View Questions</button></a>
+                                                    <a href="/tutor/result/?assignedCourseId=<%=course._id  %>"><button class="btn btn-sm btn-outline-primary me-2">View Results</button></a>
+                                                </td>
+                                            </tr>
+                                        <% }) %>
+                                    <% }) %>
+                                <% } %>
+                            </tbody>
+                     </table>
+                </div>
+            </div>
+            
+        </div>
+        <!-- Content End -->
+    </div>
+
+    <!-- Footer Start -->
+    <%- include('../snippets/footer.ejs') %>
+    <!-- Footer End -->
+
+    <!-- JavaScript -->
+    <%- include('../snippets/scripts.ejs') %>
+
+   
+    
+</body>
+</html>

@@ -1,0 +1,61 @@
+
+<!-- ###################### Lecturer navbar ends #################### -->
+    <% if (res.locals.lecturer) { %>
+    
+    <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-0 py-0">
+        <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+            <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
+        </a>
+        <a href="#" class="sidebar-toggler flex-shrink-0">
+            <i class="fa fa-bars text-primary"></i>
+        </a>
+        
+        <div class="navbar-nav align-items-center ms-auto">
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                    <img class="rounded-circle me-lg-2" src="/uploads/<%= lecturer.img %>" alt="" style="width: 50px; height: 50px;">
+                    <span class="d-none d-lg-inline-flex"><%= lecturer.fullname %></span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                    <a href="/tutor/profile" class="dropdown-item">My Profile</a>
+                    <a href="/tutor/change-password" class="dropdown-item">Change Password</a>
+                    <a href="/auth/user-logout" class="dropdown-item">Log Out</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <% } else if (res.locals.student) { %>
+        <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-0 py-0">
+            <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+                <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
+            </a>
+            <a href="#" class="sidebar-toggler flex-shrink-0">
+                <i class="fa fa-bars text-primary"></i>
+            </a>
+            <div class="subject">
+                <% if (student.studentCourse && student.studentCourse.course.length > 0) { %>
+                    <span class="fw-bold text-danger h4 me-3"><%= student.studentCourse.course[0].code %></span> 
+                    <span class="fw-bold text-success"><%= student.studentCourse.course[0].title %></span>
+                <% } %>
+            </div>
+            
+            <div class="navbar-nav align-items-center ms-auto">
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                        <img class="rounded-circle me-lg-2" src="/uploads/<%= student.img %>" alt="" style="width: 50px; height: 50px;">
+                        <span class="d-none d-lg-inline-flex"><%= student.fullname %></span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                        <a href="/student/profile" class="dropdown-item">My Profile</a>
+                        <a href="/student/change-password" class="dropdown-item">Change Password</a>
+                        <a href="/auth/user-logout" class="dropdown-item">Log Out</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+<% } %>
+<!-- ###################### Student navbar ends #################### -->
+    
+    
+

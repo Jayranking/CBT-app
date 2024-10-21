@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+     <title>Assign course</title>
+     <%- include('../snippets/headers.ejs') %>
+
+</head>
+
+<body>
+     <div class="container-fluid position-relative bg-white d-flex p-0">
+          <!-- Sidebar Start -->
+          <%- include('../snippets/adminSidebar.ejs') %> 
+          <!-- Sidebar End -->
+
+
+               <!-- Content Start -->
+               <div class="content">
+                    <!-- Navbar Start -->
+                    <%- include('../snippets/adminNav.ejs') %>
+                    <!-- Navbar End -->
+
+
+                         <!-- Content Start -->
+                         <% if (context.assignedCourses) { %>
+                         <div class="container-fluid">
+                              <div class="col-md-8 mx-auto mt-5 shadow">
+                                   <div class="card">
+                                        <div class="card-body">
+                                             <h5 class="text-primary text-center mb-5 m-2">Edit Assigend Courses</h5>
+                                             <form action="" id="assignForm">
+                                                  <div class=" mb-3">
+                                                       <select name="lecturer" class="form-select">
+                                                            <option value="<%= context.assignedCourses.lecturer._id %>"><%= context.assignedCourses.lecturer.fullname %></option>
+                                                            <% var context %>
+                                                            <% if (context.lecturers) { %>
+                                                            <% context.lecturers.forEach(lecturer=> { %>
+                                                                 <option value="<%= lecturer._id %>">
+                                                                      <%= lecturer.fullname %>
+                                                                 </option>
+                                                            <% }) %>
+                                                            <% } %>       
+                                                  </select>
+                                                       <div class="lecturerErr text-danger"></div>
+                                                  </div>
+
+                                                  <div class="row mb-2">
+                                                       <div class="col-sm-12 col-xl-6 mb-3">
+                                                            <select name="session" class="form-select">
+                                                                 <option value="<%= context.assignedCourses.session._id %>"><%= context.assignedCourses.lecturer.session %></option>
+                                                                 <% var context %>
+                                                                 <% if (context.sessions) { %>
+                                                                 <% context.sessions.forEach(Session=> { %>
+                                                                      <option value="<%= Session._id %>">
+                                                                           <%= Session.session %>
+                                                                      </option>
+                                                                 <% }) %>
+                                                                 <% } %>
+                                                            </select>
+                                                            <div class="sessionErr text-danger"></div>
+                                                       </div>
+
+                                                       <div class="col-sm-12 col-xl-6 mb-2">
+                                                            <input type="date" name="date" class="form-control"
+                                                                 placeholder="Enter date">
+                                                            <div class="dateErr text-danger"></div>
+                                                       </div>
+                                                  </div>
+
+                                                  <div class="text-center">
+                                                       <div class="btn btn-sm btn-primary p-2 mb-3" id="showCoursesBtn">Click here to select courses</div>
+                                                  </div>
+                                                  <div class="row" id="courseSelectionSection" style="display: none;">
+                                                       <div class="col-lg-12 col-md-12 col-sm-12">
+                                                            <% var context %>
+                                                            <% if (context.courses) { %>
+                                                                 <% context.courses.forEach(course=> { %>
+                                                            <div class="form-check me-2">
+                                                                 <input class="form-check-input" type="checkbox" name="title" value="<%= course._id %>">
+                                                                 <label class="form-check-label" for="defaultCheck1"><%= course.title %> - <strong><%= course.code %></strong></label>                 
+                                                            </div>
+                                                            <% }) %>
+                                                            <% } %>
+                                                            <div class="titleErr text-danger"></div>
+
+                                                       </div>
+                                                  </div>
+                                                  <input type="hidden" name="coursesAssigenedId" value="<%=context.assignedCourses._id %>">
+
+                                                  <div class="adminregBnt mt-3" id="adminlecturerreg">
+                                                       <button type="submit" class="btn">Submit</button>
+                                                  </div>
+                                             </form>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                         <% } %>
+                         <!-- Content End -->
+               </div>
+     </div>
+
+     <!-- Footer Start -->
+     <%- include('../snippets/footer.ejs') %>
+          <!-- Footer End -->
+
+     <script src="/js/editAssign.js"></script>
+     <!-- JavaScript -->
+     <%- include('../snippets/scripts.ejs') %>
+
+     <script>
+          $(document).ready(function(){
+              $("#showCoursesBtn").click(function(){
+                  $("#courseSelectionSection").toggle();
+              });
+          });
+     </script>
+
+</body>
+
+</html>

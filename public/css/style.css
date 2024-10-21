@@ -1,0 +1,422 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+      --primary: #6cbe02 !important;
+      --light: #F3F6F9;
+      --dark: #191C24;
+  }
+
+.navigation{
+      background:rgba(29, 28, 28, 0.986);      
+      padding: 10px 30px;
+
+}
+
+
+.brand .navbar-brand{
+      /* font-family: 'Rubik' sans-serif; */
+      font-weight: 600;
+      /* color: rgb(233, 120, 27); */
+      color: white;
+      transition:color 0.3s, ease-in-out;
+}
+
+.listing li{
+      margin-right: 20px;
+}
+.listing li a{
+      font-size: 20px;
+      font-weight: 600;
+      /* font-family: 'Rubik' Helvetica; */
+      letter-spacing: 0.5px;
+      color:  rgb(226, 131, 53);
+}
+.listing li a:hover{
+      color: white;
+}
+.registerBtn button{
+      /* border: 1px solid white; */
+      /* padding:2px  10px; */
+      margin-right: 10px;
+}
+.registerBtn a{
+      text-decoration: none;
+      color: white;
+      font-size: 20px;
+      font-weight: 500;
+}
+
+.registerBtn:hover{
+      background-color: rgb(233, 120, 27);
+}
+.registerBtn :hover a{
+      color: white;
+}
+
+.loginBtn button{
+      
+      padding:2px  10px; 
+      
+}
+.loginBtn a{
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: 500;
+      color: white;
+     
+}
+.loginBtn:hover{
+      background-color: rgb(233, 120, 27);
+      border-radius: 5px !important;
+}
+.loginBtn :hover a{
+      color: white;
+      font-weight: 500;
+}
+.navbar-toggler{
+      border: 1px solid white !important;
+}
+.navbar-toggler span i{
+      color: white !important;
+}
+
+
+/* HeaderSection */
+
+.headerArea{
+      position: relative;
+      width: 100%;
+      height: 530px;
+      background-image: url(../image/banner-img.jpg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+     
+}
+.headerArea::before{
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 530px;
+      background: rgba(0, 0, 0, 0.815);
+      top: 0;
+      left: 0;
+     
+}
+
+.headerArea .bannerText{
+      position: relative;
+      text-align: center;
+}
+
+.welcomeNote{
+      padding-top: 140px;
+     
+}
+    .welcomeNote h5{
+      color:rgb(202, 97, 10);;
+      font-size: 18px;
+      font-weight: bold;
+      /* font-family: 'Ubuntu Mono', sans-serif; */
+      padding-bottom: 20px;
+}
+    .welcomeNote h3{
+      color: white;
+      font-size: 60px;
+      /* font-family: Arial, Helvetica, sans-serif; */
+      font-weight: bold;
+      letter-spacing: 1px;
+      word-spacing: 2px;
+    }
+
+    .createAccount{
+      padding-top: 20px;
+      position: relative;
+      margin-top: 20px;
+    }
+    .createAccount .register{
+      padding: 10px 20px;
+      margin-right: 40px;
+      border-radius: 5px;
+      background-color:rgb(202, 97, 10);
+      border: none;
+    }
+    .createAccount .register a{
+      text-decoration: none;
+      color: white;
+      font-size: 16px;
+      font-family: 'Rubik' , sans-serif;
+      font-weight: 400;
+    }
+   
+    
+    .createAccount .login{
+      padding: 10px 30px;
+      margin-right: 20px;
+      border-radius: 5px;
+      background-color:rgb(233, 120, 27);
+      border: none;
+    }
+    
+    .createAccount .login a{
+      text-decoration: none;
+      color: white;
+      font-size: 16px;
+      font-family: 'Rubik' , sans-serif;
+      font-weight: 400;
+    }
+    .createAccount .login:hover, .register:hover{
+      background:transparent;
+      border: 1px solid white;
+}
+
+/* =====Registration Form====== */
+.reg{
+      /* background-image: url(../image/banner-img.jpg); */
+      background: url(../image/Reg_banner.jpg);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      /* background-color: #0b48943f; */
+      height: 100vh;
+}
+.reg::before{
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      /* background: rgba(0, 0, 0, 0.897); */
+      background-color: rgba(15, 128, 104, 0.589);
+      top: 0;
+      left: 0;
+     
+}
+@media (max-width: 767px){
+      .reg{
+            height: 120vh;
+      }
+
+      .reg::before{
+            height: 120vh;
+      }
+}
+
+@media (max-width: 376px){
+      .reg{
+            height: 140vh;
+      }
+
+      .reg::before{
+            height: 140vh;
+      }
+}
+
+
+
+
+.registration form{
+      position: relative;
+      margin-top: 50px;
+      background-color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+}
+.registration form h3{
+      text-align: center;
+      font-size: 18px;
+      font-weight: 600;
+      margin: 10px 0px 20px 0px;
+      /* text-decoration: underline; */
+}
+.registration form input,
+.registration form select{
+      /* background-color:  rgb(245, 242, 242); */
+}
+.registration form input:focus,
+.registration form select:focus{
+      box-shadow: none;
+}
+.registration form input::placeholder{
+      font-size: 16px;
+      /* font-family: 'Rubik' , sans-serif; */
+      font-weight: bold;
+}
+.registration form select{
+font-size: 16px;
+/* font-family: 'Rubik' , sans-serif; */
+font-weight: bold;
+}
+.registration form .input-group .form-check-input{
+border-radius: 0px !important;
+}
+
+.registration form .input-group p a{
+text-decoration: none;
+font-size: 13px;
+font-weight: 600;
+/* color: rgb(190, 188, 188); */
+}
+.registration form .input-group.sucess input{
+      color: green;
+}
+.registration form .input-group.error input{
+      color: rgb(146, 7, 7);
+}
+
+.registration form .input-group .error{
+      color: red;
+      font-size: 9px;
+}
+
+
+.submitBtn {
+      text-align: center;
+}
+
+
+.haveAccount{
+      display: flex;
+      justify-content: flex-start;
+}
+.haveAccount p{
+      font-size: 16px;
+      color: black;
+}
+.haveAccount a{
+      text-decoration: none;
+      font-size: 16px;
+      /* font-family:'Roboto' ; */
+      font-weight: bold;
+      color: rgb(173, 84, 1);
+      margin-right: 20px;
+}
+
+@media (max-width: 376px){
+      .registration form{
+            margin-top: 10px;
+
+      }
+}
+
+/* ========Login======== */
+.Login{
+  margin-top: 170px;
+
+}
+.Login h3{
+      padding-top: 20px;
+      padding-bottom: 15px;
+}
+.registration .email{
+  position: relative;
+}
+
+.registration .email span{
+  position: absolute;
+  top: 9px;
+  left: 5px;
+  font-size: 20px;
+}
+.registration .email input{
+  padding-left: 25px !important;
+  height: 50px;
+}
+
+.registration .password{
+  position: relative;
+}
+
+.registration .password i{
+  position: absolute;
+  top: 9px;
+  left: 5px;
+  font-size: 20px;
+ 
+}
+.registration .password span{
+  position: absolute;
+  top: 0;
+  right: 30px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.registration .password input{
+  padding-left: 25px !important;
+  height: 50px;
+}
+.logBtn {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.logBtn button {
+  color: #3d6cdb96;
+  padding: 5px 30px;
+  border-radius:5px;
+  background-color: white;
+  border: 1px solid white;
+  font-family: 'Rubik' , sans-serif;
+  font-weight: 600;
+  width: 100%;
+}
+.logBtn button a{
+  text-decoration: none;
+}
+.logBtn button:hover{
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+}
+.logBtn button:hover a{
+  color: white;
+}
+
+.noAccount{
+      display: flex;
+      justify-content: space-evenly;
+}
+.noAccount p{
+      font-size: 16px;
+      /* color: white; */
+}
+.noAccount a{
+      text-decoration: none;
+      font-size: 16px;
+      font-family:'Roboto' ;
+      font-weight: bold;
+      color: rgb(173, 84, 1);
+}
+
+
+.text-center button{
+      width: 100%;
+      padding: 5px 10px;
+      border: none;
+      font-size: 15px;
+      font-weight: 500;
+      color: #644928b4;
+      
+}
+.footerSection{
+     
+            background:rgba(29, 28, 28, 0.986);      
+            padding: 10px 30px;
+      
+}  
+
+.copyright{
+      position: relative;
+      width: 100%;
+      text-align: center;
+}
+.copyright h6{
+color: rgb(212, 210, 210);
+font-size: 16px;
+font-weight: 600;
+}
+.copyright h6 span{
+      color: rgb(173, 84, 1);  
+}
+

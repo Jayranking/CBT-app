@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Edit session</title>
+    <%- include('../snippets/headers.ejs') %>
+
+</head>
+<body>
+    <div class="container-fluid position-relative bg-white d-flex p-0">
+        <!-- Sidebar Start -->
+        <%- include('../snippets/adminSidebar.ejs') %> 
+        <!-- Sidebar End -->
+
+
+        <!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
+            <%- include('../snippets/adminNav.ejs') %>
+            <!-- Navbar End -->
+
+
+            <!-- Content Start -->
+            <div class="container-fluid">
+                <div class="adminRegisterLectcurer" id="adminRegisterLecturer">
+                    
+                    <div class="registerLect">
+                         <h5 class="text-primary text-center mb-5 m-2">Edit Session</h5>
+                         <form action="">
+                              <div class="row mb-4">
+                                   
+                                <div class="col-sm-12 col-xl-6 mb-3">
+                                        <h6>Session</h6>
+                                        <input type="text" name="edit_session" id="edit_session" class="form-control" placeholder="Enter Session">
+                                </div>
+
+                                <div class="col-sm-12 col-xl-6 mb-3">
+                                   <h6>Date</h6>
+                                   <input type="date" name="edit_sessionDate" id="edit_sessionDate" class="form-control">
+                                                    
+                                </div>
+     
+                              </div>
+
+                              <div class="adminregBnt mt-3" id="adminfacultyreg">
+                                    <button type="submit" class="btn">Save Change</button>
+                              </div>
+                         </form>
+                    </div>
+                </div>
+            </div>
+        <!-- Content End -->
+        </div>
+    </div>
+
+    <!-- Footer Start -->
+    <%- include('../snippets/footer.ejs') %>
+    <!-- Footer End -->
+
+    <!-- JavaScript -->
+    <%- include('../snippets/scripts.ejs') %>
+     
+</body>
+</html>

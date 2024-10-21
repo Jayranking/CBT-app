@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>View lecturer</title>
+    <%- include('../snippets/headers.ejs') %>
+
+</head>
+<body>
+    <div class="container-fluid position-relative bg-white d-flex p-0">
+        <!-- Sidebar Start -->
+        <%- include('../snippets/adminSidebar.ejs') %> 
+        <!-- Sidebar End -->
+
+
+        <!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
+            <%- include('../snippets/adminNav.ejs') %>
+            <!-- Navbar End -->
+
+
+            <!-- Content Start -->
+            <div class="container-fluid">
+                <div class="text-end mt-5">
+                    <a href="/admin/lecturer"><button class="btn btn-primary">Register Lecturer <i class="uil uil-plus"></i></button></a>
+                </div>
+                <div class="table-responsive">
+                    <h5 class="text-primary text-center mb-4">Lecturers</h5>
+                        <table id="example" class="table table-striped" style="width:100%;">
+                             <thead>
+                                <tr>                               
+                                    <th>Fullname</th>
+                                    <th>Gender</th>
+                                    <th>Email Address</th>
+                                    <th>Reg.No</th>
+                                    <th>Faculty</th>
+                                    <th>Department</th>
+                                    <th>Actions</th>
+                                </tr>
+                             </thead>
+                             <tbody>
+                                <% var context %>
+                               <% if (context.lecturers) { %>
+                                <% context.lecturers.forEach(lecturer => { %>
+                                    <tr>
+                                        <td><%= lecturer.fullname %></td>
+                                        <td><%= lecturer.gender %></td>
+                                        <td><%= lecturer.email %></td>
+                                        <td><%= lecturer.reg_no %></td>                                    
+                                        <td><%= lecturer.faculty %></td>
+                                        <td><%= lecturer.dept %></td>
+                                        <td class="d-flex">
+                                            <a href="/admin/edit-lecturer/?lecturerId=<%= lecturer._id %>"><button class=" btn btn-sm btn-outline-primary me-2" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button></a>
+                                            <button type="button" onclick="return banLect('<%=lecturer._id %>')" class=" btn btn-sm btn-outline-danger" data-toggle="tooltip" data-placement="top" title="Deactivate"><i class="fa fa-ban"></i></button>
+                                        </td>          
+                                   </tr>
+                                <% }) %>
+                               <% } %>
+
+                             </tbody>
+                         </table>
+                </div>
+            </div>
+        <!-- Content End -->
+        </div>
+    </div>
+
+    <!-- Footer Start -->
+    <%- include('../snippets/footer.ejs') %>
+    <!-- Footer End -->
+
+    <!-- JavaScript -->
+    <%- include('../snippets/scripts.ejs') %>
+     
+</body>
+</html>

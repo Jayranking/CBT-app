@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Settings</title>
+    <%- include('../snippets/headers.ejs') %>
+
+</head>
+<body>
+    <div class="container-fluid position-relative bg-white d-flex p-0">
+        <% var context %>
+        <!-- Sidebar Start -->
+        <%- include('../snippets/adminSidebar.ejs') %> 
+        <!-- Sidebar End -->
+
+        <!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
+            <%- include('../snippets/adminNav.ejs') %>
+            <!-- Navbar End -->
+
+
+            <!-- Content Start -->
+            <div class="container-fluid">
+                <h4 class="text-center mt-3 fw-bold text-success">Settings</h4>
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-12 mt-4">
+                        <div class="card shadow bg-success text-white">
+                            <div class="card-body">
+                                <!-- <div class="row"> -->
+                                    <!-- <div class="col-lg-6 col-md-6 col-sm-12 text-start"> -->
+                                        <p><i class="uil uil-user-plus fs-1"></i>  Ongoing Exam</p>
+                                    <!-- </div> -->
+                                    <!-- <div class="col-lg-6 col-md-6 col-sm-12 text-end">
+                                       
+                                    </div> -->
+                                <!-- </div> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                </div>  
+
+                
+                </div>
+            </div>
+        <!-- Content End -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <%- include('../snippets/footer.ejs') %>
+
+    <!-- JavaScript -->
+    <%- include('../snippets/scripts.ejs') %>
+     
+</body>
+</html>

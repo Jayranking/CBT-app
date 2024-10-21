@@ -1,0 +1,42 @@
+<div class="sidebar pe-4 pb-3">
+  <nav class="navbar bg-light navbar-light">
+    <a href="#" class="navbar-brand mx-4 mb-3">
+      <h5 class="text-primary">CBTAcademy</h5>
+    </a>
+
+    <div class="navbar-nav w-100">
+      <% if (res.locals.lecturer) { %>
+
+      <a href="/tutor/dashboard" class="nav-item nav-link active mb-2">
+        <i class="fa fa-tachometer-alt me-2"></i>
+        Dashboard
+      </a>
+
+      <a href="/tutor/my-course" class="nav-item nav-link mb-2">
+        <i class="uil uil-book"></i>
+        Courses
+      </a>
+
+      <a href="/auth/user-logout" class="nav-item nav-link mb-2">
+        <i class="uil-sign-out-alt me-2"></i>Sign-out
+      </a>
+
+      <% } else if (res.locals.student) { %>
+      <!-- Student -->
+      <a
+        href="/student/start-exam"
+        class="nav-item nav-link active mb-2 disabled-link"
+      >
+        <i class="fa fa-tachometer-alt me-2"></i>
+        Exam
+      </a>
+
+      <a href="/auth/user-logout" class="nav-item nav-link mb-2">
+        <i class="uil uil-sign-out-alt me-2"></i>
+        Logout
+      </a>
+
+      <% } %>
+    </div>
+  </nav>
+</div>

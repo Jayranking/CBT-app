@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>My Bio</title>
+    <%- include('../snippets/headers.ejs') %>
+
+</head>
+<body>
+    <div class="container-fluid position-relative bg-white d-flex p-0">
+        <!-- Sidebar Start -->
+        <%- include('../snippets/adminSidebar.ejs') %> 
+        <!-- Sidebar End -->
+
+
+        <!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
+            <%- include('../snippets/adminNav.ejs') %>
+            <!-- Navbar End -->
+
+
+            <!-- Content Start -->       
+            <div class="container-fluid">
+                <div class="card col-md-8 mx-auto mt-5 shadow">
+                    <div class="card-body">
+                        <h4 class="text-center text-primary mt-4">My details</h4>
+                        <input type="text" class="form-control mt-2" value="<%= admin.fullname %>" disabled>
+
+                        <div class="">
+                            <input type="text" class="form-control mt-2" value="<%= admin.email %>" disabled>
+                        </div>
+
+                        <div class="">
+                            <input type="text" class="form-control mt-2" value="<%= admin.phone_no %>" disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           
+
+        <!-- Content End -->
+        </div>
+    </div>
+
+    <!-- Footer Start -->
+    <%- include('../snippets/footer.ejs') %>
+    <!-- Footer End -->
+
+    <!-- JavaScript -->
+    <%- include('../snippets/scripts.ejs') %>
+     
+</body>
+</html>

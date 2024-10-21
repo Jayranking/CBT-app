@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Student Result</title>
+    <%- include('../snippets/headers.ejs') %>
+
+</head>
+<body>
+    <div class="container-fluid position-relative bg-white d-flex p-0">
+        <!-- Sidebar Start -->
+        <%- include('../snippets/sidebar.ejs') %>
+        <!-- Sidebar End -->
+
+
+        <!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
+            <%- include('../snippets/navbar.ejs') %>
+            <!-- Navbar End -->
+
+            <div class="container-fluid">
+                <div class="table-responsive mt-5">
+                    <h6 class="text-primary text-center mb-4">Questions</h6>
+                    <table id="example" class="table table-striped" style="width:100%;">
+                         <thead>
+                             <tr>
+                                 <th>Questions</th>
+                                 <th>A</th>
+                                 <th>B</th>
+                                 <th>C</th>
+                                 <th>D</th>
+                                 <th>Correct Answer</th>
+                                 <th>Actions</th>
+                             </tr>
+                         </thead>
+                         <tbody>
+                            <% var context %>
+                            <% if (context.courseQuestions) { %>
+                             <% context.courseQuestions.forEach(courseQuestions => { %>
+                             <tr>
+                                 <td><%=courseQuestions.question %></td>
+                                 <!-- <td> -->
+                                    <% courseQuestions.options.forEach(option => { %>
+                                        <td><%= option %></td>
+                                    <% }) %>
+                                <!-- </td> -->
+                                <td><%=courseQuestions.correctAnswer %></td>
+                                 <td class="d-flex">
+                                    <a href="/tutor/edit-question/?questionId=<%=courseQuestions._id %>"><button class=" btn btn-sm btn-outline-primary me-2" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button></a>
+                                    <button type="button"  onclick="return deleteQuestion('<%=courseQuestions._id %>')" class=" btn btn-sm btn-outline-danger" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
+                                </td> 
+                             </tr>
+                             <% }) %>
+                            <% } %>
+                         </tbody>
+                     </table>
+                </div>
+            </div>
+            
+        </div>
+        <!-- Content End -->
+    </div>
+
+    <!-- Footer Start -->
+    <%- include('../snippets/footer.ejs') %>
+    <!-- Footer End -->
+
+    <!-- JavaScript -->
+    <%- include('../snippets/scripts.ejs') %>
+    <script src="/js/deleteConfig.js"></script>
+
+   
+    
+</body>
+</html>

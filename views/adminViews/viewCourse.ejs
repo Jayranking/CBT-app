@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>View Course</title>
+    <%- include('../snippets/headers.ejs') %>
+
+</head>
+<body>
+    <div class="container-fluid position-relative bg-white d-flex p-0">
+        <!-- Sidebar Start -->
+        <%- include('../snippets/adminSidebar.ejs') %> 
+        <!-- Sidebar End -->
+
+
+        <!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
+            <%- include('../snippets/adminNav.ejs') %>
+            <!-- Navbar End -->
+
+
+            <!-- Content Start -->
+            <div class="container-fluid">
+                <div class="text-end mt-5">
+                    <a href="/admin/register-course"><button class="btn btn-primary">Register Courses <i class="uil uil-plus"></i></button></a>
+                </div>
+                <div class="table-responsive">
+                    <h5 class="text-primary text-center mb-4">Courses</h5>
+                        <table id="example" class="table table-striped" style="width:100%;">
+                             <thead>
+                                 <tr>
+                                   <th>Course Title</th>
+                                   <th>Course Code</th>
+                                   <th>Course Unit</th>
+                                   <th>Faculty</th>
+                                   <th>Department</th>
+                                   <th>Level</th>
+                                   <th>Actions</th>
+                                 </tr>
+                             </thead>
+                             <tbody>
+                                 <% var context %>
+                                 <% if (context.courses) { %>
+                                  <% context.courses.forEach(course => { %>
+                                    <tr>
+                                        <td><%= course.title %></td>
+                                        <td><%= course.code %></td>
+                                        <td><%= course.unit %></td>
+                                        <td><%= course.faculty %></td>
+                                        <td><%= course.dept %></td>
+                                        <td><%= course.level %></td>
+                                        <td class="d-flex">
+                                         <a href="/admin/edit-course/?courseId=<%= course._id %>"><button class=" btn btn-sm btn-outline-primary me-2" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button></a>
+                                         <a href=""><button class=" btn btn-sm btn-outline-danger" data-toggle="tooltip" data-placement="top" title="Deactivate"><i class="fa fa-ban"></i></button></a>
+                                         </td>                          
+                                    </tr>
+                                  <% }) %>
+                                 <% } %>
+                             </tbody>
+                         </table>
+                </div>
+            </div>
+
+        <!-- Content End -->
+        </div>
+    </div>
+
+
+    <!-- Footer Start -->
+    <%- include('../snippets/footer.ejs') %>
+    <!-- Footer End -->
+
+    <!-- JavaScript -->
+    <%- include('../snippets/scripts.ejs') %>
+     
+</body>
+</html>

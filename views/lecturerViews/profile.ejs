@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>profile</title>
+    <%- include('../snippets/headers.ejs') %>
+
+</head>
+<body>
+    <div class="container-fluid position-relative bg-white d-flex ">
+
+        <!-- Sidebar Start -->
+        <%- include('../snippets/sidebar.ejs') %>
+        <!-- Sidebar End -->
+
+        <!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
+            <%- include('../snippets/navbar.ejs') %>
+            <!-- Navbar End -->
+
+
+            <!-- Content Start -->
+            <div class="container-fluid">
+                <div class="card col-md-8 mx-auto mt-4 shadow">
+                    <div class="card-body mb-5">
+                        <div class="text-center">
+                            <img src="/uploads/<%= lecturer.img %>" alt="" class="rounded-circle" height="100" width="100">
+                        </div>
+                        <h4 class="text-center text-primary mt-4">My Bio</h4>
+                        <input type="text" class="form-control mt-2" value="<%= lecturer.fullname %>" disabled>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <input type="text" class="form-control mt-2" value="<%= lecturer.faculty %>" disabled>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <input type="text" class="form-control mt-2" value="<%= lecturer.dept %>" disabled>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <input type="text" class="form-control mt-2" value="<%= lecturer.email %> " disabled>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <input type="text" class="form-control mt-2" value="<%= lecturer.reg_no %>" disabled>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- Content End -->
+        </div>
+    </div>
+
+        <!-- Footer Start -->
+        <%- include('../snippets/footer.ejs') %>
+        <!-- Footer End -->
+        <!-- JavaScript -->
+        <%- include('../snippets/scripts.ejs') %>
+        <!-- <script>
+            new DataTable('#example');
+        </script> -->
+</body>
+</html>

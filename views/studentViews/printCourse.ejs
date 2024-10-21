@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Course Registration</title>
+    <%- include('../snippets/headers.ejs') %>
+
+</head>
+<body>
+    <div class="container-fluid position-relative bg-white d-flex ">
+        <% var context %>
+
+        <!-- Sidebar Start -->
+        <%- include('../snippets/sidebar.ejs') %>
+        <!-- Sidebar End -->
+
+        <!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
+            <%- include('../snippets/navbar.ejs') %>
+            <!-- Navbar End -->
+
+
+            <!-- Content Start -->
+            <div class="container-fluid">
+                <div class="card col-md-8 mx-auto mt-4 shadow">
+                    <div class="card-body">
+                        <div class="text-center">
+                            <img src="/uploads/<%= context.user.img %>" alt="" class="rounded-circle" height="100" width="100">
+                        </div>
+                        <h4 class="text-center text-primary mt-4">students details</h4>
+                        <input type="text" class="form-control mt-2" value="<%= context.user.fullname %>" disabled>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <input type="text" class="form-control mt-2" value="<%= context.user.faculty %>" disabled>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <input type="text" class="form-control mt-2" value="<%= context.user.dept %>" disabled>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <input type="text" class="form-control mt-2" value="<%= context.user.level %> Level" disabled>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <input type="text" class="form-control mt-2" value="<%= context.user.reg_no %>" disabled>
+                            </div>
+                        </div>
+                        <h5 class="text-center text-primary mt-2">Registered Course </h5>
+                        <% if (context.courses) { %>
+                        <% context.courses.forEach(course => { %>
+                        <input type="text" class="form-control border-0 border-bottom border-top-0 border-left-0 border-right-0 mb-2" value="<%= course.title %> - <%= course.code %>" disabled>
+                        <% }) %>
+                        <% } %>
+                    </div>
+                    <script>window.print();</script>
+                </div>
+            </div>
+        <!-- Content End -->
+        </div>
+    </div>
+
+        <!-- Footer Start -->
+        <%- include('../snippets/footer.ejs') %>
+        <!-- Footer End -->
+        <!-- JavaScript -->
+        <%- include('../snippets/scripts.ejs') %>
+        <!-- <script>
+            new DataTable('#example');
+        </script> -->
+</body>
+</html>

@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Results</title>
+    <%- include('../snippets/headers.ejs') %>
+
+</head>
+<body>
+    <div class="container-fluid position-relative bg-white d-flex p-0">
+        <!-- Sidebar Start -->
+        <%- include('../snippets/sidebar.ejs') %>
+        <!-- Sidebar End -->
+
+
+        <!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
+            <%- include('../snippets/navbar.ejs') %>
+            <!-- Navbar End -->
+
+            <!-- Content Start -->
+            <div class="container-fluid">
+                <div class="text-end mt-4">
+                    <!-- <button class="btn btn-outline-primary" id="printBtn"><i class="uil uil-print"></i>
+                        Print Results
+                    </button> -->
+                    <a href="/tutor/download-pdf" class="btn btn-outline-primary"><i class="uil uil-print"></i> Print Results</a>
+
+                </div>
+                <div class="table-responsive mt-5">
+                    <h6 class="text-primary text-center mb-4">Students Result</h6>
+                    <table id="example" class="table table-striped" style="width:100%;">
+                         <thead>
+                             <tr>
+                                 <th>Name</th>
+                                 <th>Reg No</th>
+                                 <th>Faculty</th>
+                                 <th>Department</th>
+                                 <th>Score</th>
+                             </tr>
+                         </thead>
+                         <tbody>
+                             <% var context %>
+                             <% if (results && results.length > 0) { %>
+                                <% results.forEach(result => { %>
+                                    <tr>
+                                        <td><%= result.studentId.fullname %></td>
+                                        <td><%= result.studentId.reg_no %></td>
+                                        <td><%= result.studentId.faculty %></td>
+                                        <td><%= result.studentId.dept %></td>
+                                        <td><%= result.score %></td>
+                                    </tr>
+                                <% }) %>
+                             <% } %>
+                         </tbody>
+                     </table>
+                </div>
+            </div>
+        <!-- Content End -->
+        </div>
+    </div>
+
+    <!-- Footer Start -->
+    <%- include('../snippets/footer.ejs') %>
+    <!-- Footer End -->
+
+    <!-- JavaScript -->
+    <%- include('../snippets/scripts.ejs') %>
+</body>
+</html>

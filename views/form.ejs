@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Registration Form</title>
+    <%- include('./snippets/headers.ejs') %>
+    <link rel="stylesheet" href="../css/form.css">
+  </head>
+  <body>
+    
+     
+     <div class="container-fluid registration_page">
+          <div class="row">
+               <div class="col-sm-12 col-md-3"></div>
+               <div class="col-sm-12 col-md-6">
+                  <div class="registerSection">
+                        <div class="registration">
+                            <h3>Register Your Account</h3>
+                            <div class="indicators">
+                                  <span class="line"><span></span></span>
+                                  <p class="active">1</p>
+                                  <p>2</p>
+                                  <p>3</p>
+                            </div> 
+                          <form action="" class="registerForm" enctype="multipart/form-data">
+    
+                            <div class="tab show">
+                                  <div class="row">
+                                      <div class="col-sm-12 col-md-6">
+                                      <div class=" mb-3">
+                                      <input type="text" class="form-control" name="fullname" placeholder="Full Name" id="regFullname">
+                                      <div class="fullnameError errorDiv"></div>
+                                      </div>
+                                      </div>
+                  
+                                      <div class="col-sm-12 col-md-6">
+                                      <div class=" mb-3">
+                                      <input type="text" id="regNo" name="reg_no" class="form-control" placeholder="Reg No">
+                                      <div class="reg_noError errorDiv"></div>
+                                      </div>
+                                      </div>
+                                  </div>
+                
+                                  <div class="row">
+                                      <div class="col-sm-12 col-md-6">
+                                      <div class=" mb-3">
+                                      <input type="text" class="form-control" name="phone_no" placeholder="Phone Number" id="regNumber">
+                                      <div class="phoneError errorDiv"></div>
+                                      </div>
+                                      </div>
+                  
+                                      <div class="col-sm-12 col-md-6">
+                                      <div class=" mb-3">
+                                      <input type="email" id="regEmail" name="email" class="form-control" placeholder="Email">
+                                      <div class="emailError errorDiv"></div>
+                                      </div>
+                                      </div>
+                                  </div>
+                            </div>
+            
+                            <div class="tab">
+                                  <div class="row">
+                                      <div class="col-sm-12 col-md-6">
+                                        <div class=" mb-3">
+                                          <select name="gender" id="genderSelect" class="form-select">
+                                            <option value="">Select Gender</option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                          </select>
+                                          <div class="genderError errorDiv"></div>
+                                        </div>
+            
+                                      </div>
+                    
+                                      <div class="col-sm-12 col-md-6">
+                                          <div class="mb-3">
+                                            <input type="file" class="form-control" name="img">
+                                            <div class="imgError errorDiv"></div>
+                                          </div>
+                                      </div>
+                                    </div>
+                    
+                                    <div class="row">
+                                      <div class="col-sm-12 col-md-6">
+                                          <div class=" mb-3">
+                                                <select name="faculty" id="regFaculty" class="form-select">
+                                                  <option value="">Select Faculty</option>
+                                                  <% var context %>
+                                                  <% if (context.faculties) { %>
+                                                   <% context.faculties.forEach(faculty => { %>
+                                                    <option value="<%=faculty.faculty_name%>"><%=faculty.faculty_name%></option>
+                                                   <% }) %>
+                                                  <% } %>
+                                                </select>
+                                                <div class="facultyError errorDiv"></div>
+                                              </div>
+                                      </div>
+                    
+                                      <div class="col-sm-12 col-md-6">
+                                        <div class=" mb-3">
+                                          <select name="dept" id="dept" class="form-select">
+                                            <option value="">Select Department</option>
+                                            <% var context %>
+                                            <% if (context.depts) { %>
+                                            <% context.depts.forEach(dept => { %>
+                                              <option value="<%= dept.dept_name %>"><%= dept.dept_name %></option>
+                                            <% }) %>
+                                            <% } %>
+                                          </select>
+                                          <div class="deptError errorDiv"></div>
+                                        </div>
+                                      </div>
+                                    </div>
+                            </div>            
+                            
+                            <div class="tab">
+                                  <div class="row">
+                                      <div  class="col-sm-12 col-md-6">  
+                                          <div class=" mb-3">
+                                                <select name="level" id="studentLevel" class="form-select" >
+                                                  <option value="">Select Level</option>
+                                                  <option value="100">100</option>
+                                                  <option value="200">200</option>
+                                                  <option value="300">300</option>
+                                                  <option value="400">400</option>
+                                                  <option value="500">500</option>
+                                                </select>
+                                                <div class="levelError errorDiv"></div>
+                                          </div>                         
+                                        
+                                      </div>
+                    
+                                      <div  class="col-sm-12 col-md-6">
+                                        <div class="mb-3">
+                                          <select name="session" id="session" class="form-select">
+                                            <option value="">Select Session</option>
+                                            <% var context %>
+                                            <% if (context.sessions) { %>
+                                            <% context.sessions.forEach(session => { %>
+                                              <option value="<%= session.session %>"><%= session.session %></option>
+                                            <% }) %>
+                                            <% } %>
+                                          </select>
+                                          <div class="sessionError errorDiv"></div>
+                                        </div>
+                                      </div>
+                                    </div>
+                    
+                                    <div class="row">
+                                      <div class="col-sm-12 col-md-6">
+                                        <div class=" mb-3">
+                                          <input type="password" class="form-control" name="password" placeholder="Password" id="regPassword">
+                                          <div class="passwordError errorDiv"></div>
+                                        </div>
+                                      </div>
+                    
+                                      <div class="col-sm-12 col-md-6">
+                                        <div class=" mb-3">
+                                          <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" id="regConfirmPassword">
+                                          <div class="confirmError errorDiv"></div>
+                                        </div>
+                                      </div>
+                                    </div> 
+                            </div>
+    
+                            
+                            <div class="registerBtn mt-3" >
+                              <button type="button" class="prev">Previous</button>
+                              <button type="button" class="next">Next</button>
+                            </div>
+                            <div class="haveAccount mt-2">
+                              <p>Already have an account? <a href="/login">Login</a></p>  
+                            </div>
+                          </form>
+                        </div>
+                  </div>
+                </div>
+               
+               <div class="col-sm-12 col-md-3"></div>
+          </div>
+     </div>
+
+
+
+     <script src="/js/form.js"></script>
+     <%- include('./snippets/scripts.ejs') %>
+  </body>
+</html>

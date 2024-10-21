@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Instructions</title>
+    <%- include('../snippets/headers.ejs') %>
+
+</head>
+<body>
+    <div class="container-fluid position-relative bg-white d-flex p-0">
+        <!-- Sidebar Start -->
+        <!-- Sidebar End -->
+
+        <% var context %>
+        <!-- Content Start -->
+        <!-- <div class="content"> -->
+            <!-- Navbar Start -->
+            <!-- Navbar End -->
+
+
+            <div class="container pt-5">
+                <div class="examDuration">
+                    <span><i class="uil uil-stopwatch"></i></span>
+                    <h5>Time Given: 60minutes.</h5>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-7 col-md-6 col-sm-12 mb-3">
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <div class="instruction">
+                                    <h5 class="fw-bold text-danger">Instructions</h5>
+                                    <div class="steps">
+                                        <p> <span><i class="uil uil-arrow-right"></i></span>
+                                            Answer carefully and submit when done
+                                        </p>
+                                        <p><span><i class="uil uil-arrow-right"></i></span>
+                                            Be aware of the total time allocated for the exam
+                                        </p>
+                                        <p><span><i class="uil uil-arrow-right"></i></span>
+                                            Confirm that your answers are submitted before the end of the exam
+                                        </p>
+                                        <p><span><i class="uil uil-arrow-right"></i></span>
+                                            Contact technical support if you encounter any issues during the exam
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="text-end">
+                                    <a href="/student/exam"><button class="btn btn-outline-primary">Start Exam <i class="fa fa-pen"></i></button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-5 col-md-6 col-sm-12 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="instruction">
+                                    <h5 class="fw-bold text-danger">Instructions</h5>
+                                    <div class="steps mb-5">
+                                        <p> <span><i class="uil uil-arrow-right"></i></span>
+                                            Take practice is not same with Exam question
+                                        </p>
+                                        <p><span><i class="uil uil-arrow-right"></i></span>
+                                            Be aware of time allocated for the practice
+                                        </p>
+                                        <p><span><i class="uil uil-arrow-right"></i></span>
+                                            Confirm your answers before submitting
+                                        </p>
+                                        
+                                    </div>
+                                </div>
+                                <div class="text-end">
+                                    <button class="btn btn-outline-danger" disabled>Take Practice <i class="fa fa-book"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- <div class="startExam text-center pt-4 pb-4">
+                    <button><a href="/student/exam"> <span><i class="uil uil-edit"></i></span> Start Exam</a></button>
+                </div> -->
+            </div>
+            
+        </div>
+        <!-- Content End -->
+    </div>
+
+    <!-- Footer Start -->
+    <!-- Footer End -->
+
+    <!-- JavaScript -->
+    <%- include('../snippets/scripts.ejs') %>
+
+</body>
+</html>

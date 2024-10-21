@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>View results</title>
+    <%- include('../snippets/headers.ejs') %>
+
+</head>
+<body>
+    <div class="container-fluid position-relative bg-white d-flex p-0">
+        <!-- Sidebar Start -->
+        <%- include('../snippets/adminSidebar.ejs') %> 
+        <!-- Sidebar End -->
+
+
+        <!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
+            <%- include('../snippets/adminNav.ejs') %>
+            <!-- Navbar End -->
+
+
+            <!-- Content Start -->
+            <div class="container-fluid">
+               <div class="table-responsive mt-5">
+                <h5 class="text-primary text-center">Student Result</h5>
+                    <table id="example" class="table table-striped" style="width:100%;">
+                         <thead>
+                             <tr>
+                                 <th>Name</th>
+                                 <th>Reg No</th>
+                                 <th>Faculty</th>
+                                 <th>Department</th>
+                                 <th>Course Code</th>
+                                 <th>Course Title</th>
+                                 <th>Result</th>
+                                
+                             </tr>
+                         </thead>
+                         <tbody>
+                             
+                             <tr>
+                                 <td>Ashton Coleman</td>
+                                 <td>Ebu/2023/79874</td>
+                                 <td>Science </td>
+                                 <td>Computer Science</td>
+                                 <td>CSC 101</td>
+                                 <td>Introduction to Computer</td>
+                                 <td>
+                                    <p><a href="./studentResult.html">View Result</a></p>
+                                 </td>
+                                
+                             </tr>
+
+                             <tr>
+                                <td>Ekenechukwu James</td>
+                                <td>Ebu/2023/87874</td>
+                                <td>Management Science </td>
+                                <td> Accountancy</td>
+                                <td>CSC 101</td>
+                                <td>Introduction to Computer</td>
+                                <td>
+                                    <p><a href="./studentResult.html">View Result</a></p>
+                                 </td>
+                            </tr>
+                                  
+                            <tr>
+                                <td>Ogbogu Kyrian</td>
+                                <td>Ebu/2022/78874</td>
+                                <td>Management Science </td>
+                                <td> Bankin and Finance</td>
+                                <td>CSC 101</td>
+                                <td>Introduction to Computer</td>
+                                <td>
+                                    <p><a href="./studentResult.html">View Result</a></p>
+                                 </td>
+                            </tr>
+
+                            <tr>
+                                <td>Njoku Tobechukwu</td>
+                                <td>Ebu/2023/67874</td>
+                                <td>Social Science </td>
+                                <td> Sociology</td>
+                                <td>CSC 101</td>
+                                <td>Introduction to Computer</td>
+                                <td>
+                                    <p><a href="./studentResult.html">View Result</a></p>
+                                 </td>
+                            </tr>
+
+                            <tr>
+                                <td>Nnamani Lebechi</td>
+                                <td>Ebu/2023/89733</td>
+                                <td>Social Science </td>
+                                <td> Political Science</td>
+                                <td>CSC 101</td>
+                                <td>Introduction to Computer</td>
+                                <td>
+                                    <p><a href="./studentResult.html">View Result</a></p>
+                                 </td>
+                            </tr>
+
+                            <tr>
+                                <td>Ifeanyi Esther</td>
+                                <td>Ebu/2023/89673</td>
+                                <td>Social Science </td>
+                                <td> Mass Communication</td>
+                                <td>CSC 101</td>
+                                <td>Introduction to Computer</td>
+                                <td>
+                                    <p><a href="./studentResult.html">View Result</a></p>
+                                 </td>
+                            </tr>
+
+                         </tbody>
+                     </table>
+                </div>
+            </div>
+        <!-- Content End -->
+        </div>
+    </div>
+
+    <!-- Footer Start -->
+    <%- include('../snippets/footer.ejs') %>
+    <!-- Footer End -->
+
+    <!-- JavaScript -->
+    <%- include('../snippets/scripts.ejs') %>
+     
+</body>
+</html>

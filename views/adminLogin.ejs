@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Login</title>
+    <%- include('./snippets/headers.ejs') %>
+    <link rel="stylesheet" href="../css/style.css">
+
+  </head>
+  <body>
+
+      <div class="container-fluid reg">
+        <div class="row">
+          <div class="col-sm-12 col-md-4"></div>
+
+          <div class="col-sm-12 col-md-4">
+            <div class="registration Login">
+              <form action="" id="loginForm">
+                <h3>Login Here</h3>
+                
+                <div class=" email mb-4" >
+                  <span><i class="uil uil-envelope"></i></span>
+                  <input type="text" name="email" class="form-control" placeholder="Email" id="loginEmail">
+                  <div class="emailErr text-danger"></div>
+                </div>
+    
+                <div class=" password mb-4">
+                  <i class="uil uil-lock-alt"></i>
+                  <input type="password" name="password" class="form-control passwordeye" placeholder="Password">
+                  <span><i class="uil uil-eye showHidePassword"></i></span>
+                  <div class="passwordErr text-danger"></div>
+                </div>  
+                   
+                <div class="mb-4">
+                  <button type="submit" class="btn btn-outline-success w-100">Login</button>
+                </div>
+                
+              </form>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-4"></div>
+        </div>
+        
+      </div>
+        
+      <script src="../js/loginAdmin.js"></script>
+      <%- include('./snippets/scripts.ejs') %>
+
+  </body>
+</html>

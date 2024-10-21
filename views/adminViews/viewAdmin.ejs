@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>View admin</title>
+    <%- include('../snippets/headers.ejs') %>
+    
+</head>
+<body>
+    <div class="container-fluid position-relative bg-white d-flex p-0">
+        <!-- Sidebar Start -->
+        <%- include('../snippets/adminSidebar.ejs') %> 
+        <!-- Sidebar End -->
+
+
+        <!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
+            <%- include('../snippets/adminNav.ejs') %>
+            <!-- Navbar End -->
+
+
+            <!-- Content Start -->
+            <div class="container-fluid">
+                <div class="text-end mt-5">
+                    <a href="/admin/register-admin"><button class="btn btn-primary">Register Admin <i class="uil uil-plus"></i></button></a>
+                </div>
+                <div class="table-responsive">
+                    <h5 class="text-primary text-center mb-4">Admins</h5>
+                    <table id="example" class="table table-striped" style="width:100%;">
+                            <thead>
+                            <tr>                               
+                                <th>Fullname</th>
+                                <th>Gender</th>
+                                <th>Email Address</th>
+                                <th>Phone No</th>
+                                <th>Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <% var context %>
+                            <% if (context.admins) { %>
+                            <% context.admins.forEach(admin => { %>
+                            <tr>
+                                <td><%= admin.fullname %></td>
+                                <td><%= admin.gender %></td>
+                                <td><%= admin.email %></td>
+                                <td><%= admin.phone_no %></td>
+                                <td class="d-flex">
+                                    <a href="/admin/edit-admin/?adminId=<%= admin._id %>"><button class=" btn btn-sm btn-outline-primary me-2" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button></a>
+                                    <a href=""><button class=" btn btn-sm btn-outline-danger" data-toggle="tooltip" data-placement="top" title="Deactivate"><i class="fa fa-ban"></i></button></a>
+                                </td>
+                                            
+                            </tr>
+                            <% }) %>
+                            <% } %>
+
+                            </tbody>
+                    </table>
+                </div>
+            </div>
+        <!-- Content End -->
+        </div>
+    </div>
+
+    <!-- Footer Start -->
+    <%- include('../snippets/footer.ejs') %>
+    <!-- Footer End -->
+
+    <!-- JavaScript -->
+    <%- include('../snippets/scripts.ejs') %>
+     
+</body>
+</html>

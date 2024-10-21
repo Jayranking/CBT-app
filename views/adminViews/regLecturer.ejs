@@ -1,0 +1,176 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <title>Register</title>
+    <%- include('../snippets/headers.ejs') %>
+
+
+  </head>
+  <body>
+      <div class="container-fluid position-relative bg-white d-flex p-0">
+        <!-- Sidebar Start -->
+        <%- include('../snippets/adminSidebar.ejs') %> 
+        <!-- Sidebar End -->
+
+
+        <!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
+            <%- include('../snippets/adminNav.ejs') %>
+            <!-- Navbar End -->
+
+
+            <!-- Content Start -->
+            <div class="container-fluid">
+                <div class="card col-md-8 mx-auto shadow mt-5">
+                    <div class="card-body mb-3 mt-3">
+                        <h3 class="text-center text-primary">Register Lecturer</h3>
+                          <div class="row">
+                            <div class="registration">
+                              <form action="" class="registerForm" enctype="multipart/form-data">                  
+                                <div class="row">
+                                  <div class="col-sm-12 col-md-6">
+                                    <div class=" mb-3">
+                                      <input type="text" class="form-control" name="fullname" placeholder="Fullname" id="regFullname">
+                                      <div class="fullnameError text-danger"></div>
+                                    </div>
+                                  </div>
+                
+                                  <div class="col-sm-12 col-md-6">
+                                    <div class=" mb-3">
+                                      <input type="text" id="regNo" name="reg_no" class="form-control" placeholder="Mat. No">
+                                      <div class="reg_noError text-danger"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                
+                                <div class="row">
+                                  <div class="col-sm-12 col-md-6">
+                                    <div class=" mb-3">
+                                      <input type="text" class="form-control" name="phone_no" placeholder="Phone Number" id="regNumber">
+                                      <div class="phoneError text-danger"></div>
+                                    </div>
+                                  </div>
+                
+                                  <div class="col-sm-12 col-md-6">
+                                    <div class=" mb-3">
+                                      <input type="email" id="regEmail" name="email" class="form-control" placeholder="Email">
+                                      <div class="emailError text-danger"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                
+                                
+                                <div class="row">
+                                  <div class="col-sm-12 col-md-6">
+                                    <div class=" mb-3">
+                                      <select name="faculty" id="regFaculty" class="form-select">
+                                        <option value="">Select Faculty</option>
+                                        <% var context %>
+                                        <% if (context.faculties) { %>
+                                         <% context.faculties.forEach(faculty => { %>
+                                          <option value="<%=faculty.faculty_name%>"><%=faculty.faculty_name%></option>
+                                         <% }) %>
+                                        <% } %>
+                                      </select>
+                                      <div class="facultyError text-danger"></div>
+                                    </div>
+                                  </div>
+
+                                  <div class="col-sm-12 col-md-6">
+                                    <div class=" mb-3">
+                                      <select name="dept" id="dept" class="form-select">
+                                        <option value="">Select Department</option>
+                                          <% var context %>
+                                          <% if (context.depts) { %>
+                                          <% context.depts.forEach(dept => { %>
+                                            <option value="<%= dept.dept_name %>"><%= dept.dept_name %></option>
+                                          <% }) %>
+                                          <% } %>
+                                      </select>
+                                      <div class="deptError text-danger"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                
+                                <div class="row">
+                                  <div class="col-sm-12 col-md-6">
+                                    <div class=" mb-3">
+                                      <select name="level" id="studentLevel" class="form-select" >
+                                        <option value="">Select Level</option>
+                                        <option value="100">100</option>
+                                        <option value="200">200</option>
+                                        <option value="300">300</option>
+                                        <option value="400">400</option>
+                                        <option value="500">500</option>
+                                      </select>
+                                      <div class="levelError text-danger"></div>
+                                    </div>
+                                  </div>
+                                  
+                                  <div class="col-sm-12 col-md-6">
+                                    <div class=" mb-3">
+                                      <select name="gender" id="genderSelect" class="form-select">
+                                        <option value="">Select Gender</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                      </select>
+                                      <div class="genderError text-danger"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                
+                                <div class="row">
+                                  <div  class="col-sm-12 col-md-6">
+                                    <div class="mb-3">
+                                      <input type="file" class="form-control" name="img">
+                                      <div class="imgError text-danger"></div>
+                                    </div>
+                                    
+                                  </div>
+                
+                                  <div  class="col-sm-12 col-md-6">
+                                    <div class="mb-3">
+                                      <select name="session" id="session" class="form-select">
+                                        <option value="">Select Session</option>
+                                        <% var context %>
+                                          <% if (context.sessions) { %>
+                                          <% context.sessions.forEach(session => { %>
+                                            <option value="<%= session.session %>"><%= session.session %></option>
+                                          <% }) %>
+                                          <% } %>
+                                      </select>
+                                      <div class="sessionError text-danger"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                
+                                <div class="" >
+                                  <button class="btn btn-primary w-100" type="submit">Register</button>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        <!-- Content End -->
+        </div>
+      </div>
+
+
+      <!-- Footer Start -->
+      <%- include('../snippets/footer.ejs') %>
+      <!-- Footer End -->
+
+      <!-- JavaScript -->
+      <!-- <%- include('../snippets/scripts.ejs') %> -->
+
+      <!-- frontend  -->
+      <script src="../js/regLecturer.js"></script>
+      <%- include('../Snippets/scripts.ejs') %>
+
+  </body>
+</html>

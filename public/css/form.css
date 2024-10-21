@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+*{
+     padding: 0;
+     margin: 0;
+     box-sizing: border-box;
+     font-family: 'Poppins', sans-serif;
+}
+
+.registration_page, .login_page{
+    padding-top: 120px;
+    /* background-color: blue; */
+    height: 100vh;
+    background: url(../image/Reg_banner.jpg);
+    background-position: center;
+    background-size: cover;
+} 
+
+.registration_page::before, .login_page::before{
+     content: '';
+     position: absolute;
+     width: 100%;
+     height: 100%;
+     background-color: rgba(15, 128, 104, 0.589);
+     top: 0;
+     left: 0;
+}
+.registerSection, .loginSection{
+     border: 1px solid #dddddde1;
+     padding: 20px;
+     position: relative;
+     border-radius: 5px;
+}
+.registration, .login{
+     background-color: white;
+     padding: 20px;
+     border-radius: 10px;
+}
+
+.registration h3{
+     font-size: 25px;
+     font-weight: 600;
+     text-align: center;
+     margin-bottom: 30px;
+}
+
+.indicators{
+     position: relative;
+     width: 100%;
+     display: flex;
+     justify-content: space-between;
+     margin-bottom: 25px;
+}
+
+.indicators .line{
+     position: absolute;
+     height: 3px;
+     width: 100%;
+     background-color: #ddd;
+     left: 0;
+     top: 40%;
+     transform: translateY(-50);
+     z-index: 10;
+    
+}
+.indicators .line span{
+     position: absolute;
+     height: 100%;
+     top: 0;
+     left: 0;
+     width: 0;
+     background-color: green;
+}
+.indicators p{
+     position: relative;
+     z-index: 20;
+     width: 40px;
+     height: 40px;
+     border: 4px solid #ddd;
+     background-color: #fff;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     border-radius: 50%;
+     transition: .3s;
+}
+
+.indicators p.active{
+     border-color: rgb(6, 182, 6);
+     color: rgb(6, 182, 6);
+}
+
+.registerForm .tab{
+     display: none;
+}
+
+.registerForm .tab.show{
+     display: block;
+}
+
+.registerForm .tab input:focus{
+     box-shadow: none;
+     border-color: rgb(6, 182, 6);
+}
+
+.errorDiv{
+     font-size: 14px;
+     font-weight: 500;
+     color: rgb(238, 5, 5);
+     margin: 5px 0 0 10px ;
+}
+.registerBtn{
+     display: flex;
+     align-items: center;
+     justify-content: flex-end;
+}
+.registerBtn button{
+     padding: 10px 30px;
+     margin-left: 10px;
+     border: none;
+     outline: none ;
+     cursor: pointer;
+}
+
+.registerBtn button.prev{
+     background-color: #eee;
+}
+.registerBtn  button.next{
+     background-color: rgb(6, 182, 6);
+     color: white;
+}
+.haveAccount p a{
+     text-decoration: none;
+     color: darkred;
+     font-weight: 600;
+}
+
+.haveAccount p a:hover{
+     color: rgb(6, 182, 6);
+}
+
+.haveAccount .hide{
+     display: none;
+}
+
+@media (max-width:767px){
+     .registration_page{
+          padding-top: 100px;
+          height: 100vh;
+      }
+      
+}
+
+/* ======== Login Styling ==== */
+
+.loginSection{
+     position: relative;
+}
+.login h3{
+     font-size: 25px;
+     font-weight: 600;
+     text-align: center;
+     margin-top: 15px;
+     margin-bottom: 20px;
+}
+
+.loginForm .email{
+     position: relative;
+}
+.loginForm .email span {
+     position: absolute;
+     font-size:20px;
+     margin-left: 5px;
+     color: rgb(10, 173, 10);
+     top: 10px;
+}
+
+.loginForm .email input, .loginForm .password input{
+     height: 50px;
+     padding-left: 25px;
+     font-weight: 500;
+     font-size: 18px;
+}
+
+.loginForm .email input:focus, .loginForm .password input:focus{
+     box-shadow: none;
+     border-color:rgb(11, 129, 11);
+     
+}
+
+.loginForm .password{
+     position: relative;
+}
+
+.loginForm .password i{
+     position: absolute;
+     font-size:20px;
+     margin-left: 5px;
+     color: rgb(10, 173, 10);
+     top: 10px;
+     z-index: 1;
+}
+.loginForm .password span{
+     position: absolute;
+     right: 30px;
+     top: 0px;
+}
+
+.logBtn{
+     text-align: end;
+     /* padding: 20px; */
+}
+.logBtn button {
+     background-color: rgb(6, 182, 6);
+     padding: 5px 20px;
+     border: none;
+}
+.logBtn button a{
+     text-decoration: none;
+     color: white;
+     font-weight: 500;
+     letter-spacing: 1px;
+}
+

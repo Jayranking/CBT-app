@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Register dept</title>
+    <%- include('../snippets/headers.ejs') %>
+
+</head>
+<body>
+    <div class="container-fluid position-relative bg-white d-flex p-0">
+        <!-- Sidebar Start -->
+        <%- include('../snippets/adminSidebar.ejs') %> 
+        <!-- Sidebar End -->
+
+
+        <!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
+            <%- include('../snippets/adminNav.ejs') %>
+            <!-- Navbar End -->
+
+
+            <!-- Content Start -->
+            <div class="container-fluid">
+                    <div class="card col-md-6 mx-auto mt-5">
+                        <div class="card-body">
+                            <h5 class="text-primary text-center mb-3">Register Department</h5>
+                            <form action="" id="deptForm">
+                                    <div class="col-sm-12 mb-3">
+                                        <input type="text" name="dept_name" id="dept_name" class="form-control" placeholder="Enter department name">
+                                        <div class="deptErr text-danger"></div>
+                                    </div>
+
+        
+                                    <div class="col-sm-12 mb-3">
+                                        <div class=" mb-3">
+                                            <select name="faculty_name" class="form-select">
+                                              <option value="">---Select Faculty---</option>
+                                              <% var context %>
+                                              <% if (context.faculties) { %>
+                                                <% context.faculties.forEach(faculty => { %>
+                                                    <option value="<%= faculty.faculty_name %>"><%= faculty.faculty_name %></option>
+                                                  <% }) %>
+                                              <% } %>
+                                              
+                                            </select>
+                                            <div class="facultyErr text-danger"></div>
+                                        </div>                                    
+                                    </div>
+                                
+                                    <div class="adminregBnt mt-3 mb-4" id="adminfacultyreg">
+                                        <button type="submit" class="btn">Submit</button>
+                                    </div>
+                            </form>
+                        </div>
+                    </div>
+            </div>
+        <!-- Content End -->
+        </div>
+    </div>
+
+
+    <!-- Footer Start -->
+    <%- include('../snippets/footer.ejs') %>
+    <!-- Footer End -->
+
+    <script src="../js/dept.js"></script>
+    <!-- JavaScript -->
+    <%- include('../snippets/scripts.ejs') %>
+     
+</body>
+</html>

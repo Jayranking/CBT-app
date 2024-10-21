@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Login</title>
+    <%- include('./snippets/headers.ejs') %>
+    <link rel="stylesheet" href="../css/style.css">
+
+    
+  </head>
+  <body>
+
+    <div class="container-fluid reg">
+      <div class="row">
+        <div class="col-sm-12 col-md-4"></div>
+
+        <div class="col-sm-12 col-md-4">
+          <div class="registration Login">
+            <form action="" id="loginForm">
+              <h3 class="fw-bold">Login</h3>
+              
+              <div class=" email mb-4" >
+                <span><i class="uil uil-envelope"></i></span>
+                <input type="text" name="reg_no" class="form-control" placeholder="Reg No" id="loginEmail">
+                <div class="reg_noErr text-danger"></div>
+              </div>
+  
+              <div class=" password mb-4">
+                <i class="uil uil-lock-alt"></i>
+                <input type="password" name="password" class="form-control passwordeye" placeholder="Password">
+                <span><i class="uil uil-eye showHidePassword"></i></span>
+                <div class="passwordErr text-danger"></div>
+              </div>  
+                  
+              <div class="">
+                <button class="btn btn-outline-success w-100" type="submit">Login</button>
+              </div>
+              <div class="d-flex mt-4">
+                <p class="me-2">Don't have an account?</p>
+                <a href="/register" class="text-decoration-none">Sign Up</a>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-4"></div>
+      </div>
+      
+    </div>
+      
+    <script src="./js/login.js"></script>
+    <%- include('./snippets/scripts.ejs') %>
+
+  </body>
+</html>

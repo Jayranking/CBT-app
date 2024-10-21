@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Course Assigned</title>
+    <%- include('../snippets/headers.ejs') %>
+
+</head>
+<body>
+    <div class="container-fluid position-relative bg-white d-flex p-0">
+        <!-- Sidebar Start -->
+        <%- include('../snippets/adminSidebar.ejs') %> 
+        <!-- Sidebar End -->
+
+
+        <!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
+            <%- include('../snippets/adminNav.ejs') %>
+            <!-- Navbar End -->
+
+
+            <!-- Content Start -->
+            <% if (context.assignedCourse) { %>
+                         
+            <div class="container-fluid">
+                <div class="card col-md-8 mx-auto mt-4">
+                    <div class="card-body">
+                        <div class="text-center">
+                            <img src="/uploads/<%= context.assignedCourse.lecturer.img %>" alt="" class="rounded-circle" height="100" width="100">
+                        </div>
+                        <h4 class="text-center text-primary mt-4">Lecturers details</h4>
+                        <input type="text" class="form-control mt-2" value="<%= context.assignedCourse.lecturer.fullname %>" disabled>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <input type="text" class="form-control mt-2" value="<%= context.assignedCourse.lecturer.faculty %>" disabled>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <input type="text" class="form-control mt-2" value="<%= context.assignedCourse.lecturer.dept %>" disabled>
+                            </div>
+                        </div>
+                        <!-- <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <input type="text" class="form-control mt-2" value="<%= context.assignedCourse.session.session %>" disabled>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <input type="text" class="form-control mt-2" value="<%= context.assignedCourse.session.semester %>" disabled>
+                            </div>
+                        </div> -->
+                        <h5 class="text-center text-primary mt-5">Course assigned </h5>
+                        <% if (context.assignedCourse.course) { %>
+                        <% context.assignedCourse.course.forEach(course => { %>
+                        <input type="text" class="form-control border-0 border-bottom border-top-0 border-left-0 border-right-0 mb-2" value="<%= course.title %> - <%= course.code %>" disabled>
+                        <% }) %>
+                        <% } %>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <% } %>
+
+        <!-- Content End -->
+        </div>
+    </div>
+
+    <!-- Footer Start -->
+    <%- include('../snippets/footer.ejs') %>
+    <!-- Footer End -->
+
+    <!-- JavaScript -->
+    <%- include('../snippets/scripts.ejs') %>
+     
+</body>
+</html>
